@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public static final String LOG_TAG = "Logs";
-
+    public static final String PASSWORD_KEY ="password";
+    public static final String USER_KEY = "user";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +53,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(LOG_TAG,"В методе onDestroy");
+        Log.d(LOG_TAG, "В методе onDestroy");
     }
 
-    protected void buttonClick(View v){
-        Toast.makeText(MainActivity.this, getResources().getString(R.string.write_text), Toast.LENGTH_SHORT).show();
-    }
+
 
     @Override
     public void onClick(View v) {
@@ -65,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btnClick:
                 Toast.makeText(this,getResources().getString(R.string.write_text),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.putExtra(PASSWORD_KEY,"1111");
+                intent.putExtra(USER_KEY,"user1");
+                startActivity(intent);
                 break;
             case R.id.btnIntent:
                 Intent i = new Intent(this, SecondActivity.class);
