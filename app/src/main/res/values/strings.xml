@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ItStepFirst9pz3</string>
+    <string name="hello_custom">Helo we changed</string>
+    <string name="button_name">Click</string>
+    <string name="write_text">Helo string</string>
+    <string name="text_activity_second">Second activity</string>
+    <string name="button_intent">Go to second activity</string>
+</resources>
