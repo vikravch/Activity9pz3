@@ -18,6 +18,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Восстановление состояния
+        try {
+            Log.d(LOG_TAG, "var - " + savedInstanceState.getInt("var", 0));
+        }
+        catch (Exception ex){
+            Log.d(LOG_TAG,"var - пустой");
+        }
+
+
+
         Log.d(LOG_TAG, "В методе onCreate");
         setContentView(R.layout.activity_main); //подключение разметки
 
@@ -26,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnIntent = (Button) findViewById(R.id.btnIntent);
         btnIntent.setOnClickListener(this);
+
+        ((Button) findViewById(R.id.btnListActivity)).setOnClickListener(this);
     }
 
     protected void onStart(){
@@ -56,7 +69,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(LOG_TAG, "В методе onDestroy");
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //Bundle b = new Bundle();
+        outState.putInt("var", 12);
+        super.onSaveInstanceState(outState);
 
+        Log.d(LOG_TAG, "В методе onSaveInstanceState");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        Log.d(LOG_TAG,"Result code - "+resultCode+ "; Request code - "+requestCode);
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public void onClick(View v) {
@@ -67,11 +95,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(this, LoginActivity.class);
                 intent.putExtra(PASSWORD_KEY,"1111");
                 intent.putExtra(USER_KEY,"user1");
-                startActivity(intent);
+                startActivityForResult(intent, 0);
                 break;
             case R.id.btnIntent:
                 Intent i = new Intent(this, SecondActivity.class);
                 startActivity(i);
+                break;
+            case R.id.btnListActivity:
+                startActivity(new Intent(this,ListActivity.class));
                 break;
         }
 

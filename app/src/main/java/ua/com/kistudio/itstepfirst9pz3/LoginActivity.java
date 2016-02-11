@@ -24,5 +24,12 @@ public class LoginActivity extends AppCompatActivity {
 
         tvUser.setText(tvUser.getText().toString()+" "+user);
         tvPassword.setText(tvPassword.getText().toString()+" "+password);
+        setResult(1);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

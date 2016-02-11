@@ -29,6 +29,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_list"
+        android:id="@+id/btnListActivity"
+        android:layout_below="@+id/btnIntent"
+        android:layout_alignRight="@+id/btnClick"
+        android:layout_alignEnd="@+id/btnClick" />
+
 
     <!--
         tv - TextView (tvOut, tvText, tvShow)

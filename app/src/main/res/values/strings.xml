@@ -7,4 +7,5 @@
     <string name="button_intent">Go to second activity</string>
     <string name="user_name">User :</string>
     <string name="user_password">Password :</string>
+    <string name="button_list">ListActivity</string>
 </resources>

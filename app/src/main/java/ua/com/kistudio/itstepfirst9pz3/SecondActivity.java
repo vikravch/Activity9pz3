@@ -16,7 +16,6 @@ public class SecondActivity extends Activity {
 
     }
 
-
     protected void onStart(){
         super.onStart();
         Log.d(MainActivity.LOG_TAG, "В методе onStart SecondActivity");
