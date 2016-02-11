@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(LOG_TAG, "В методе onCreate");
         setContentView(R.layout.activity_main); //подключение разметки
 
+        // Описание кнопок
         Button btn = (Button) findViewById(R.id.btnClick);
         btn.setOnClickListener(this);
 
